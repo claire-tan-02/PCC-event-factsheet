@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Closer Certification | Event Factsheet</title>
+  <link rel="icon" type="image/png" href="VM%20Color%20Logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════════════════
+       DESIGN TOKENS — LIGHT MODE
+    ═══════════════════════════════════════════════════ */
+    :root {
+      --brand:         #d1b475;
+      --brand-dark:    #6e5208;
+      --brand-darker:  #7a4d00;
+      --brand-light:   #ecddb8;
+      --brand-xlight:  #faf5e8;
+
+      --bg:            #fafaf7;
+      --surface:       #ffffff;
+      --surface-alt:   #f5efe0;
+      --border:        #dfc990;
+      --border-soft:   #ece3c5;
+
+      --text:          #1a0f00;
+      --text-mid:      #5a3d0a;
+      --text-light:    #9a7840;
+
+      --dark-bg:       #1a0e00;
+
+      --shadow:        0 2px 16px rgba(0,0,0,.08);
+      --shadow-md:     0 6px 28px rgba(0,0,0,.14);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       DESIGN TOKENS — DARK MODE
+    ═══════════════════════════════════════════════════ */
+    [data-theme="dark"] {
+      --brand:         #d1b475;
+      --brand-dark:    #c09a50;
+      --brand-darker:  #d1b475;
+      --brand-light:   #2a1e00;
+      --brand-xlight:  #1a1300;
+
+      --bg:            #0a0800;
+      --surface:       #140e00;
+      --surface-alt:   #1e1500;
+      --border:        #3a2800;
+      --border-soft:   #2a1d00;
+
+      --text:          #f0e4c8;
+      --text-mid:      #c8a870;
+      --text-light:    #7a6040;
+
+      --dark-bg:       #050300;
+
+      --shadow:        0 2px 16px rgba(0,0,0,.35);
+      --shadow-md:     0 6px 28px rgba(0,0,0,.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) {
+        --brand:         #d1b475;
+        --brand-dark:    #c09a50;
+        --brand-darker:  #d1b475;
+        --brand-light:   #2a1e00;
+        --brand-xlight:  #1a1300;
+        --bg:            #0a0800;
+        --surface:       #140e00;
+        --surface-alt:   #1e1500;
+        --border:        #3a2800;
+        --border-soft:   #2a1d00;
+        --text:          #f0e4c8;
+        --text-mid:      #c8a870;
+        --text-light:    #7a6040;
+        --dark-bg:       #050300;
+        --shadow:        0 2px 16px rgba(0,0,0,.35);
+        --shadow-md:     0 6px 28px rgba(0,0,0,.45);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       THEME TOGGLE BUTTON
+    ═══════════════════════════════════════════════════ */
+    #theme-btn {
+      position: fixed;
+      top: 18px; right: 18px; z-index: 999;
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 2px solid rgba(209,180,117,.45);
+      background: rgba(10,8,0,.85);
+      backdrop-filter: blur(8px);
+      cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+    }
+    #theme-btn:hover { transform: scale(1.1); box-shadow: 0 4px 18px rgba(0,0,0,.4); }
+
+    /* ═══════════════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════════════ */
+    .header {
+      background: linear-gradient(150deg, #0A0800 0%, #1A1400 45%, #2A2000 70%, #0A0800 100%);
+      color: #fff;
+      text-align: center;
+      padding: 64px 24px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-bg {
+      position: absolute; inset: 0;
+      background-image: url('Header%20background%20image.jpg');
+      background-size: cover; background-position: center 20%;
+      opacity: 0.32;
+      pointer-events: none;
+    }
+    .header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(209,180,117,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(209,180,117,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .header::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, #d1b475, #e8cc8a, #d1b475, transparent);
+    }
+    .header-inner {
+      position: relative; z-index: 1;
+      max-width: 780px; margin: 0 auto;
+    }
+    .event-badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #7a4d00;
+      font-size: .66rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 20px; border-radius: 30px; margin-bottom: 28px;
+    }
+    .event-name {
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.5px;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .event-name span { color: #ffffff; }
+    .header-rule {
+      width: 52px; height: 2px;
+      background: var(--brand);
+      margin: 0 auto 28px; border-radius: 2px;
+    }
+    .header-meta {
+      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+    }
+    .meta-pill {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .84rem; color: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.07); border: 1px solid rgba(212,175,55,.28);
+      border-radius: 50px; padding: 6px 15px;
+    }
+    .meta-pill strong { color: #fff; font-weight: 600; }
+
+    /* ═══════════════════════════════════════════════════
+       COUNTDOWN
+    ═══════════════════════════════════════════════════ */
+    .countdown-wrap {
+      background: var(--brand);
+      padding: 30px 24px; text-align: center;
+    }
+    .countdown-label {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: 3.5px; text-transform: uppercase;
+      color: rgba(74,45,0,.72); margin-bottom: 18px;
+    }
+    .countdown-boxes { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .cbox {
+      background: rgba(122,77,0,.13); border-radius: 14px;
+      padding: 14px 16px 12px; min-width: 78px; text-align: center;
+    }
+    .cnum {
+      font-size: clamp(1.9rem, 5.5vw, 2.9rem); font-weight: 800;
+      color: #4a2d00; line-height: 1; display: block;
+      font-variant-numeric: tabular-nums;
+    }
+    .cunit {
+      font-size: .6rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(74,45,0,.65);
+      margin-top: 5px; display: block;
+    }
+    .countdown-done {
+      font-size: 1.05rem; font-weight: 600; color: #7a4d00; padding: 8px 0;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MAIN LAYOUT
+    ═══════════════════════════════════════════════════ */
+    .main {
+      max-width: 880px; margin: 0 auto;
+      padding: 28px 16px 80px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       ACCORDION
+    ═══════════════════════════════════════════════════ */
+    .acc-item {
+      background: var(--surface); border-radius: 16px;
+      box-shadow: var(--shadow); overflow: hidden; transition: box-shadow .2s;
+    }
+    .acc-item.is-open { box-shadow: var(--shadow-md); }
+
+    .acc-toggle {
+      width: 100%; display: flex; align-items: center; gap: 14px;
+      padding: 22px 28px; background: none; border: none;
+      cursor: pointer; text-align: left;
+      font-family: 'Poppins', sans-serif;
+      color: inherit; transition: background .15s;
+    }
+    .acc-toggle:hover { background: var(--surface-alt); }
+    .acc-item.is-open .acc-toggle { border-bottom: 2px solid var(--border); }
+
+    .sec-icon {
+      width: 44px; height: 44px;
+      background: var(--brand);
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .sec-title {
+      flex: 1;
+      font-size: 1.1rem; font-weight: 700; letter-spacing: .5px;
+      color: var(--text);
+    }
+    .acc-chevron {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--surface-alt);
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--brand-dark); font-size: .75rem; flex-shrink: 0;
+      transition: transform .3s ease, background .2s;
+    }
+    .acc-item.is-open .acc-chevron {
+      transform: rotate(180deg);
+      background: var(--brand); color: #7a4d00;
+      border-color: var(--brand);
+    }
+
+    .acc-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height .38s cubic-bezier(.4,0,.2,1);
+    }
+    .acc-content { padding: 28px 28px 32px; }
+
+    @media (max-width: 600px) {
+      .acc-toggle { padding: 18px 18px; }
+      .acc-content { padding: 20px 18px 24px; }
+      .sec-title { font-size: 1rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       INFO ROWS
+    ═══════════════════════════════════════════════════ */
+    .info-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 4px 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-soft);
+      align-items: start;
+    }
+    .info-row:first-child { padding-top: 0; }
+    .info-row:last-child  { border-bottom: none; padding-bottom: 0; }
+    .ilabel {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      padding-top: 2px; line-height: 1.4;
+    }
+    .ivalue {
+      font-size: .875rem; color: var(--text-mid); line-height: 1.65;
+    }
+    .ivalue strong { color: var(--text); font-weight: 600; }
+    .inote {
+      font-size: .76rem; color: var(--text-light);
+      font-style: italic; margin-top: 4px;
+    }
+    @media (max-width: 480px) {
+      .info-row { grid-template-columns: 1fr; gap: 3px; }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       BUTTONS
+    ═══════════════════════════════════════════════════ */
+    .map-btns {
+      display: flex; gap: 9px; margin-top: 13px; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 16px; border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: .8rem; font-weight: 600;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform .15s, box-shadow .15s, background .15s, color .15s;
+    }
+    .btn-solid {
+      background: var(--brand); color: #7a4d00;
+    }
+    .btn-solid:hover {
+      background: var(--brand-dark); color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212,175,55,.4);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SUBSECTIONS
+    ═══════════════════════════════════════════════════ */
+    .subsec { margin-bottom: 30px; }
+    .subsec:last-child { margin-bottom: 0; }
+    .subsec-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PARKING GRID
+    ═══════════════════════════════════════════════════ */
+    .park-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    @media (max-width: 560px) { .park-grid { grid-template-columns: 1fr; } }
+
+    .park-card {
+      border: 2px solid var(--border); border-radius: 14px; overflow: hidden;
+    }
+    .park-head {
+      background: var(--surface-alt); padding: 14px 18px;
+      border-bottom: 2px solid var(--border);
+    }
+    .park-opt {
+      font-size: .62rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--brand-dark);
+    }
+    .park-name {
+      font-size: 1.02rem; font-weight: 700; color: var(--text); margin-top: 3px;
+    }
+    .park-body { padding: 16px 18px; }
+    .park-detail { margin-bottom: 14px; }
+    .park-detail:last-child { margin-bottom: 0; }
+    .park-dlabel {
+      font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: 5px;
+    }
+    .park-dval {
+      font-size: .82rem; color: var(--text-mid); line-height: 1.7;
+    }
+    .park-dval strong { color: var(--text); font-weight: 600; }
+
+    /* ═══════════════════════════════════════════════════
+       LOBBY BOX
+    ═══════════════════════════════════════════════════ */
+    .lobby-box {
+      background: var(--surface-alt);
+      border-left: 4px solid var(--brand);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      font-size: .875rem; color: var(--text-mid); line-height: 1.8;
+    }
+    .lobby-box strong { color: var(--text); }
+
+    /* ═══════════════════════════════════════════════════
+       CHECKLIST / HW ITEMS
+    ═══════════════════════════════════════════════════ */
+    .hw-box {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .hw-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .875rem; color: var(--text-mid);
+      background: var(--surface-alt);
+      border-left: 3px solid var(--brand);
+      border-radius: 0 8px 8px 0;
+      padding: 11px 16px; line-height: 1.6;
+    }
+    .hw-item .hw-icon { flex-shrink: 0; margin-top: 1px; }
+    .hw-item a {
+      color: var(--brand-dark); font-weight: 600; text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    [data-theme="dark"] .hw-item a { color: var(--brand); }
+
+    /* ═══════════════════════════════════════════════════
+       HOMEWORK
+    ═══════════════════════════════════════════════════ */
+    .hw-intro {
+      font-size: .82rem; font-style: italic;
+      color: var(--text-light); margin-bottom: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       DRESS CODE
+    ═══════════════════════════════════════════════════ */
+    .dress-badge {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: .875rem; color: var(--text-mid);
+      background: var(--surface-alt);
+      border-left: 3px solid var(--brand);
+      border-radius: 0 8px 8px 0;
+      padding: 11px 16px; line-height: 1.6;
+      font-weight: 500;
+    }
+    .dress-badge .dress-icon { flex-shrink: 0; margin-top: 1px; }
+
+    /* ═══════════════════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════════════════ */
+    .faq-item {
+      border: 2px solid var(--border); border-radius: 13px;
+      overflow: hidden; margin-bottom: 10px;
+    }
+    .faq-item:last-child { margin-bottom: 0; }
+    .faq-q {
+      background: var(--surface-alt); padding: 15px 20px;
+      font-weight: 700; color: var(--text); font-size: .95rem;
+      display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
+    }
+    .faq-qmark {
+      background: var(--brand); color: #7a4d00;
+      font-size: .65rem; font-weight: 800;
+      width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .faq-a {
+      padding: 14px 20px; font-size: .855rem; color: var(--text-mid);
+      line-height: 1.8; display: flex; align-items: flex-start; gap: 12px;
+    }
+    .faq-amark {
+      color: var(--brand-dark); font-weight: 700; font-size: .82rem;
+      flex-shrink: 0; margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RATES
+    ═══════════════════════════════════════════════════ */
+    .rate-row {
+      display: flex; align-items: flex-start; gap: 8px;
+      padding: 3px 0; font-size: .82rem;
+    }
+    .rate-dot { color: var(--brand-dark); font-weight: 900; flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════════════════
+       VENUE / PARKING PHOTOS
+    ═══════════════════════════════════════════════════ */
+    .park-photo {
+      width: 100%; display: block;
+      border-radius: 8px; object-fit: cover;
+      max-height: 160px; margin-top: 10px;
+      border: 1.5px solid var(--border);
+    }
+    .venue-photo {
+      width: 100%; display: block;
+      border-radius: 12px; object-fit: cover;
+      max-height: 280px; margin-top: 14px;
+      border: 2px solid var(--border);
+    }
+    .photo-caption {
+      font-size: .74rem; color: var(--text-light);
+      font-style: italic; text-align: center; margin-top: 7px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════ */
+    footer {
+      background: linear-gradient(150deg, var(--dark-bg) 0%, #2a1800 100%);
+      color: rgba(255,255,255,.45);
+      text-align: center;
+      padding: 34px 24px;
+      font-size: .8rem; line-height: 1.9;
+    }
+    footer .brand { color: var(--brand); font-weight: 600; font-size: .88rem; }
+  </style>
+</head>
+<body>
+
+<!-- Theme toggle -->
+<button id="theme-btn" title="Toggle dark / light mode" aria-label="Toggle theme">🌙</button>
+
+<!-- ═══════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-bg"></div>
+  <div class="header-inner">
+    <span class="event-badge">Event Factsheet</span>
+    <h1 class="event-name">
+      Premium <span>Closer</span><br>Certification
+    </h1>
+    <div class="header-rule"></div>
+    <div class="header-meta">
+      <div class="meta-pill">📅&nbsp;<strong>10 – 12 July 2026 &nbsp;·&nbsp; Fri – Sun</strong></div>
+      <div class="meta-pill">🕙&nbsp;<strong>10:00 AM – 10:00 PM</strong></div>
+      <div class="meta-pill">📍&nbsp;<strong>Menara EcoWorld, KL</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     COUNTDOWN
+═══════════════════════════════════════════════════ -->
+<div class="countdown-wrap">
+  <div class="countdown-label">Counting Down to Event Day</div>
+  <div id="countdown" class="countdown-boxes">
+    <div class="cbox"><span class="cnum" id="cd-days">--</span><span class="cunit">Days</span></div>
+    <div class="cbox"><span class="cnum" id="cd-hours">--</span><span class="cunit">Hours</span></div>
+    <div class="cbox"><span class="cnum" id="cd-mins">--</span><span class="cunit">Mins</span></div>
+    <div class="cbox"><span class="cnum" id="cd-secs">--</span><span class="cunit">Secs</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MAIN — ACCORDION SECTIONS
+═══════════════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- ── 1. EVENT DETAILS ─────────────────────────────── -->
+  <div class="acc-item">
+    <button class="acc-toggle" aria-expanded="false">
+      <div class="sec-icon">📋</div>
+      <h2 class="sec-title">Event Details</h2>
+      <span class="acc-chevron">&#9660;</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-content">
+
+        <div class="info-row">
+          <span class="ilabel">Venue</span>
+          <div class="ivalue">
+            <strong>Vertex Mastery Sdn Bhd</strong><br>
+            39-07, Menara EcoWorld @ BBCC,<br>
+            2, Jln Hang Tuah, Bukit Bintang,<br>
+            55100 Kuala Lumpur
+            <div class="map-btns">
+              <a href="https://www.google.com/maps/search/?api=1&query=Vertex+Mastery+Sdn+Bhd+39-07+Menara+Ecoworld+BBCC+2+Jln+Hang+Tuah+Bukit+Bintang+55100+Kuala+Lumpur"
+                 target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="flex-shrink:0;vertical-align:middle;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/></svg>
+                &nbsp; Google Maps
+              </a>
+              <a href="https://waze.com/ul/hw283f7wb2"
+                 target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="flex-shrink:0;vertical-align:middle;"><path d="M12 2C7 2 3 6.1 3 11c0 3.1 1.6 5.9 4 7.5l.6 2.5h8.8l.6-2.5c2.4-1.6 4-4.4 4-7.5 0-4.9-4-9-9-9z" fill="#33CCFF"/><circle cx="9.2" cy="10.2" r="1.4" fill="white"/><circle cx="14.8" cy="10.2" r="1.4" fill="white"/><circle cx="9.7" cy="10.7" r="0.7" fill="#1a4a6b"/><circle cx="15.3" cy="10.7" r="0.7" fill="#1a4a6b"/><path d="M9 13.8 Q12 16.2 15 13.8" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+                &nbsp; Waze
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <span class="ilabel">Event Date</span>
+          <div class="ivalue">
+            <strong>10 – 12 July 2026</strong><br>
+            Friday to Sunday
+          </div>
+        </div>
+
+        <div class="info-row">
+          <span class="ilabel">Time</span>
+          <div class="ivalue">
+            Registration Time: <strong>9:00 AM – 10:00 AM</strong><br>
+            Event Time: <strong>10:00 AM – 10:00 PM</strong>
+            <p class="inote">End time may vary.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2. VENUE GUIDE ───────────────────────────────── -->
+  <div class="acc-item">
+    <button class="acc-toggle" aria-expanded="false">
+      <div class="sec-icon">🏢</div>
+      <h2 class="sec-title">Venue Guide</h2>
+      <span class="acc-chevron">&#9660;</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-content">
+
+        <!-- Grab -->
+        <div class="subsec">
+          <div class="subsec-title">If You Are Taking Grab To The Venue</div>
+          <p class="ivalue" style="margin-top:4px;">Drop-off Point: <strong>Menara EcoWorld</strong></p>
+        </div>
+
+        <!-- Parking -->
+        <div class="subsec">
+          <div class="subsec-title">If You Are Driving To The Venue</div>
+          <p style="font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brand-dark);margin-bottom:12px;padding-left:2px;">Parking Options</p>
+          <div class="park-grid">
+
+            <div class="park-card">
+              <div class="park-head">
+                <div class="park-opt">Option 1</div>
+                <div class="park-name">Lalaport BBCC</div>
+              </div>
+              <div class="park-body">
+                <div class="park-detail">
+                  <div class="park-dlabel">How to Park</div>
+                  <div class="park-dval">
+                    Park at <strong>Zone C (Blue Zone)</strong><br>
+                    Pillar number <strong>C1 – C4</strong>
+                  </div>
+                  <img src="Lalaport%20Parking%20Picture.jpeg" alt="Lalaport Zone C parking" class="park-photo" loading="lazy" />
+                </div>
+                <div class="park-detail">
+                  <div class="park-dlabel">Rates</div>
+                  <div class="park-dval">
+                    <div class="rate-row"><span class="rate-dot">•</span><span>First 3 hours: <strong>Free</strong></span></div>
+                    <div class="rate-row"><span class="rate-dot">•</span><span>Subsequent hour: <strong>RM 3</strong></span></div>
+                    <div class="rate-row"><span class="rate-dot">•</span><span>After 5:00 PM: <strong>Free</strong></span></div>
+                    <div class="rate-row"><span class="rate-dot">•</span><span>Max per day: <strong>RM 30</strong></span></div>
+                  </div>
+                </div>
+                <div class="park-detail">
+                  <a href="https://drive.google.com/file/d/1qBIPrbqQzve_NeG4iKZavrkVCfLPh3DJ/view?usp=sharing"
+                     target="_blank" rel="noopener noreferrer"
+                     class="btn btn-solid" style="font-size:.76rem;padding:8px 13px;">
+                    ▶&nbsp; Directory Video
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="park-card">
+              <div class="park-head">
+                <div class="park-opt">Option 2</div>
+                <div class="park-name">The Labs @ BBCC</div>
+              </div>
+              <div class="park-body">
+                <div class="park-detail">
+                  <div class="park-dlabel">How to Park</div>
+                  <div class="park-dval">
+                    Park at <strong>B3</strong>, near <strong>Lift A</strong>
+                  </div>
+                </div>
+                <div class="park-detail">
+                  <div class="park-dlabel">Rates</div>
+                  <div class="park-dval">
+                    <div class="rate-row"><span class="rate-dot">•</span><span>First hour: <strong>RM 3</strong></span></div>
+                    <div class="rate-row"><span class="rate-dot">•</span><span>Subsequent hour: <strong>RM 2</strong></span></div>
+                    <div class="rate-row"><span class="rate-dot">•</span><span>Max per day: <strong>RM 40</strong></span></div>
+                  </div>
+                </div>
+                <div class="park-detail">
+                  <a href="https://drive.google.com/file/d/1oMJFtL8d2HX7w0G1q9xJnEQnNaeUMid6/view?usp=sharing"
+                     target="_blank" rel="noopener noreferrer"
+                     class="btn btn-solid" style="font-size:.76rem;padding:8px 13px;">
+                    ▶&nbsp; Directory Video
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Lobby -->
+        <div class="subsec" style="margin-bottom:0;">
+          <div class="subsec-title">When You Arrive At The Venue Lobby</div>
+          <div class="lobby-box">
+            Head to the reception counter to register. Mention to the security guards that you are going up to <strong>Level 39, Unit 07</strong>.
+          </div>
+          <img src="Building%20Lobby%20Picture.jpg" alt="Building lobby — head to reception counter upon arrival" class="venue-photo" loading="lazy" />
+          <p class="photo-caption">Head to the reception counter upon arrival</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 3. WHAT TO PREPARE ───────────────────────────── -->
+  <div class="acc-item">
+    <button class="acc-toggle" aria-expanded="false">
+      <div class="sec-icon">🎒</div>
+      <h2 class="sec-title">What to Prepare</h2>
+      <span class="acc-chevron">&#9660;</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-content">
+
+        <!-- Items to Bring -->
+        <div class="subsec">
+          <div class="subsec-title">Items to Bring</div>
+          <div class="hw-box">
+            <div class="hw-item"><span class="hw-icon">💧</span><span>Water Bottle with Lid</span></div>
+            <div class="hw-item"><span class="hw-icon">📓</span><span>Notebook with Pen</span></div>
+            <div class="hw-item"><span class="hw-icon">🔋</span><span>Power Bank or Charger</span></div>
+            <div class="hw-item"><span class="hw-icon">🧥</span><span>Jacket <em>(Highly recommended!)</em></span></div>
+            <div class="hw-item"><span class="hw-icon">🪪</span><span>Name cards to exchange with your fellow classmates</span></div>
+          </div>
+        </div>
+
+        <!-- Homework -->
+        <div class="subsec">
+          <div class="subsec-title">Homework</div>
+          <p class="hw-intro">Please complete the following before the workshop:</p>
+          <div class="hw-box">
+            <div class="hw-item">
+              <span class="hw-icon">1️⃣</span>
+              <span>Send your <strong>Facebook &amp; LinkedIn</strong> profile link to our team.</span>
+            </div>
+            <div class="hw-item">
+              <span class="hw-icon">2️⃣</span>
+              <span>
+                <strong>Update Profile Picture</strong><br>
+                Please update your profile picture to a professional photo on:<br>
+                &bull; Facebook<br>
+                &bull; LinkedIn
+              </span>
+            </div>
+            <div class="hw-item">
+              <span class="hw-icon">3️⃣</span>
+              <span>
+                <strong>Update Cover Photo</strong> for both platforms. Update your cover photo on both Facebook and LinkedIn using the official image provided by our team
+                <a href="https://drive.google.com/drive/folders/1NbMlk4PssW0zsxFqlOcQbO9vK3e3ChEx?usp=sharing" target="_blank" rel="noopener noreferrer">here</a>.<br>
+                <em style="font-size:.82em;color:var(--text-light);">These updates are part of the professional positioning standard expected in this program.</em>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dress Code -->
+        <div class="subsec" style="margin-bottom:0;">
+          <div class="subsec-title">Dress Code</div>
+          <div class="dress-badge">
+            <span class="dress-icon">👔</span>
+            <span>Smart Casual — Bring a jacket, the room will be cold.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 4. FAQ ────────────────────────────────────────── -->
+  <div class="acc-item">
+    <button class="acc-toggle" aria-expanded="false">
+      <div class="sec-icon">❓</div>
+      <h2 class="sec-title">Frequently Asked Questions</h2>
+      <span class="acc-chevron">&#9660;</span>
+    </button>
+    <div class="acc-body">
+      <div class="acc-content">
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-qmark">Q</span>
+            <span>Can I transfer my ticket to someone else?</span>
+          </div>
+          <div class="faq-a">
+            <span class="faq-amark">A</span>
+            <span>Yes. Tickets are non-refundable but transferable within the same company. Just inform us 5 working days before the workshop so we can update your attendee information.</span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-qmark">Q</span>
+            <span>Is there any translation service?</span>
+          </div>
+          <div class="faq-a">
+            <span class="faq-amark">A</span>
+            <span>The workshop will be conducted entirely in English, and no translation will be provided.</span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-qmark">Q</span>
+            <span>Is the workshop HRDC Claimable?</span>
+          </div>
+          <div class="faq-a">
+            <span class="faq-amark">A</span>
+            <span>Yes. Premium Closer Certification is HRD Corp claimable under the HRD Corp training schemes, subject to your company's eligibility and levy balance.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER BUTTONS
+═══════════════════════════════════════════════════ -->
+<div style="background:var(--bg);padding:48px 24px 48px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+  <a href="https://t.me/+Ft-C8stx_DFmOGY1"
+     target="_blank" rel="noopener noreferrer"
+     style="min-width:200px;max-width:360px;display:flex;align-items:center;justify-content:center;gap:10px;
+            background:#d1b475;color:#7a4d00;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;
+            padding:18px 32px;border-radius:50px;text-decoration:none;border:3px solid #6e5208;
+            box-shadow:0 4px 18px rgba(209,180,117,.4);transition:transform .15s,box-shadow .15s;"
+     onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(209,180,117,.55)'"
+     onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(209,180,117,.4)'">
+    ✈️&nbsp; Telegram Group
+  </a>
+  <a href="https://api.whatsapp.com/send/?phone=601154581419&text&type=phone_number&app_absent=0"
+     target="_blank" rel="noopener noreferrer"
+     style="min-width:200px;max-width:360px;display:flex;align-items:center;justify-content:center;gap:10px;
+            background:#d1b475;color:#7a4d00;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;
+            padding:18px 32px;border-radius:50px;text-decoration:none;border:3px solid #6e5208;
+            box-shadow:0 4px 18px rgba(209,180,117,.4);transition:transform .15s,box-shadow .15s;"
+     onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(209,180,117,.55)'"
+     onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(209,180,117,.4)'">
+    📞&nbsp; Contact Us
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
+<footer>
+  <p class="brand">Vertex Mastery Sdn Bhd</p>
+  <p>Copyright 2025. All Rights Reserved, Vertex Mastery Sdn Bhd.</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════ -->
+<script>
+  /* ── ACCORDION ─────────────────────────────────────── */
+  document.querySelectorAll('.acc-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var item   = this.closest('.acc-item');
+      var body   = item.querySelector('.acc-body');
+      var isOpen = item.classList.contains('is-open');
+
+      if (isOpen) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() { body.style.maxHeight = '0'; });
+        });
+        item.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.addEventListener('transitionend', function onEnd() {
+          if (item.classList.contains('is-open')) body.style.maxHeight = 'none';
+          body.removeEventListener('transitionend', onEnd);
+        });
+      }
+    });
+  });
+
+  /* ── DARK / LIGHT THEME TOGGLE ─────────────────────── */
+  var htmlEl      = document.documentElement;
+  var themeBtn    = document.getElementById('theme-btn');
+  var STORAGE_KEY = 'vm-pcc-theme';
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    themeBtn.textContent = (theme === 'dark') ? '☀️' : '🌙';
+    localStorage.setItem(STORAGE_KEY, theme);
+  }
+
+  (function() {
+    var saved  = localStorage.getItem(STORAGE_KEY);
+    var system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    applyTheme(saved || system);
+  })();
+
+  themeBtn.addEventListener('click', function() {
+    applyTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ── COUNTDOWN ─────────────────────────────────────── */
+  var EVENT_DATE = new Date('2026-07-10T10:00:00+08:00');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    var diff = EVENT_DATE - Date.now();
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML =
+        '<p class="countdown-done">This event has started — we\'ll see you there! 🎉</p>';
+      return;
+    }
+    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 864e5));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 864e5) / 36e5));
+    document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 36e5) / 6e4));
+    document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 6e4) / 1e3));
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
